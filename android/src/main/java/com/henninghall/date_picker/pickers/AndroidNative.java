@@ -53,10 +53,11 @@ public class AndroidNative extends NumberPicker implements Picker {
     public void setTextColor(String stringColor) {
         int color = Color.parseColor(stringColor);
 
-        if (Build.VERSION.SDK_INT >= 29) {
-            super.setTextColor(color);
-            return;
-        }
+        // Had to comment this out because it refuses to compile on older sdk versions. Sina 05/04/2023
+        // if (Build.VERSION.SDK_INT >= 29) {
+        //     super.setTextColor(color);
+        //     return;
+        // }
 
         try {
             Field selectorWheelPaintField = getClass().getSuperclass()
